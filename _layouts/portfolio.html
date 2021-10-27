@@ -1,0 +1,76 @@
+---
+layout: single
+---
+<!-- WRAPPER -->
+<div class="wrapper">
+<!-- InstanceBeginEditable name="Page-Content" -->
+    <!-- .portfolio-single -->
+    <div class="portfolio-single">
+        <!-- .row -->
+        <div class="row">
+            <!-- TITLE - column 8/12 -->
+            <div class="col-md-8 portfolio-field portfolio-title">
+                <h2>{{ page.title | escape }}</h2>
+            </div>
+            <!-- TITLE - column 8/12 -->
+            <!-- PORTFOLIO-NAV - column 4/12 -->
+            <div class="col-md-4 portfolio-field portfolio-nav">
+              {%- if page.previous.url -%}
+                <a class="icon button prev ajax" href="{{page.previous.url}}"></a>
+              {%- endif -%}
+              {%- if page.next.url -%}
+                <a class="icon button next ajax" href="{{page.next.url}}"></a>
+              {%- endif -%}
+              <a class="button back" href="#/portfolio"></a>
+            </div>
+            <!-- PORTFOLIO-NAV - column 4/12 -->
+        </div>
+        <!-- .row -->
+        <!-- .row -->
+        <div class="row">
+            <!-- PORTFOLIO-IMAGES - column 8/12 -->
+            <div class="col-md-8 portfolio-field">
+              {{ content }}
+            </div>
+            <!-- PORTFOLIO-IMAGES - column 8/12 -->
+            <!-- PORTFOLIO SIDEBAR - column 4/12 -->
+            <div class="col-md-4 portfolio-field">
+                <h3>Description</h3>
+                {{ page.excerpt }}
+                <h3>Client</h3>
+                <p>{{ page.client }}</p>
+                <h3>Technology</h3>
+                {%- if page.tags.size > 0 -%}
+                  <ul class="tags">
+                    {% for tag in page.tags %}
+                      <li><a>{{tag}}</a></li>
+                    {% endfor %}
+                  </ul>
+                {%- endif -%}
+                <div class="launch">
+                    <a href="#" class="button primary">LAUNCH PROJECT</a>
+                </div>
+            </div>
+            <!-- PORTFOLIO SIDEBAR - column 4/12 -->
+        </div>
+        <!-- .row -->
+        <!-- .row -->
+        <div class="row">
+            <!-- PORTFOLIO-NAV BOTTOM - column 12/12 -->
+            <div class="col-md-12 portfolio-field portfolio-nav bottom">
+              {%- if page.previous.url -%}
+                <a class="icon button prev ajax" href="{{page.previous.url}}"></a>
+              {%- endif -%}
+              {%- if page.next.url -%}
+                <a class="icon button next ajax" href="{{page.next.url}}"></a>
+              {%- endif -%}
+              <a class="button back" href="#/portfolio"></a>
+            </div>
+            <!-- PORTFOLIO-NAV BOTTOM - column 12/12 -->
+        </div>
+        <!-- .row -->
+    </div>
+    <!-- .portfolio-single -->
+    <!-- InstanceEndEditable -->
+</div>
+<!-- WRAPPER -->

@@ -7,17 +7,26 @@
   </a>
   <h1>JakeLong</h1>
   <p>freelance graphic designer & coder</p>
-  <!-- NAV MENU -->
-  <ul class="vs-nav">
-    <!-- InstanceBeginEditable name="Menu-Content" -->
-    <li><a href="#/about">about me</a></li>
-    <li><a href="#/portfolio">portfolio</a></li>
-    <li><a href="#/contact">contact</a></li>
-    <li><a href="#/blog">blog</a></li>
-    <li><a href="#/resume">resume</a></li>
-    <!-- InstanceEndEditable -->
-  </ul>
-  <!-- NAV MENU -->
+  {%- if page.layout=='home' -%}
+    <!-- NAV MENU -->
+    <ul class="vs-nav">
+      <!-- InstanceBeginEditable name="Menu-Content" -->
+      <li><a href="#/about">about me</a></li>
+      <li><a href="#/portfolio">portfolio</a></li>
+      <li><a href="#/contact">contact</a></li>
+      <li><a href="#/blog">blog</a></li>
+      <li><a href="#/resume">resume</a></li>
+      <!-- InstanceEndEditable -->
+    </ul>
+  {%- else -%}
+    <ul class="vs-nav">
+      <!-- InstanceBeginEditable name="Menu-Content" -->
+      <li><a href="/#/portfolio"><i title="back to portfolio" class="icon-left-open tooltip" data-tooltip-pos="left"></i></a></li>
+      <li><a href="/"><i title="go to home" class="icon-home-1 tooltip" data-tooltip-pos="right"></i></a></li>
+      <!-- InstanceEndEditable -->
+    </ul>
+    <!-- NAV MENU -->
+  {%- endif -%}
   <!-- SEARCH -->
   <div class="header-search">
     <form role="search" method="get" id="search-form" action="#">

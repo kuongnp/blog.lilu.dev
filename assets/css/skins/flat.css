@@ -1,11 +1,16 @@
 /* FLAT STYLE */
 
 /* HEADER */
-.header { 
-	color: #fff; background: #79CE98; 
+.header {
+	color: #fff;
+	/*background: #79CE98;*/
+		background-image: url('/assets/images/site/skull.gif');
+		background-repeat: no-repeat;
+		background-position: center;
+    background-size: cover;
 	}
 .single-page-layout .header .vs-nav {
-	margin-top: 0.5em; 
+	margin-top: 0.5em;
 	}
 .vs-nav li a {
 	color: rgba(255, 255, 255, 0.3);
@@ -28,24 +33,24 @@
 #search-form #search:focus {
     background: transparent; color: #fff; border-color: #fff;
 	}
-#search-form #search::-webkit-input-placeholder { 
+#search-form #search::-webkit-input-placeholder {
     color:    #fff;
 }
-#search-form #search:-moz-placeholder { 
+#search-form #search:-moz-placeholder {
     color:    #fff;
 }
-#search-form #search::-moz-placeholder { 
+#search-form #search::-moz-placeholder {
     color:    #fff;
 }
-#search-form #search:-ms-input-placeholder { 
+#search-form #search:-ms-input-placeholder {
     color:    #fff;
 }
 #search-submit {
 	color: #fff;
 	}
-	
+
 /* CLASSIC LAYOUT NAV */
-.classic-layout .vs-nav li a { 
+.classic-layout .vs-nav li a {
 	color: #fff; color: rgba(255, 255, 255, 0.6); border-color: rgba(255, 255, 255, 0.2);
 	}
 
@@ -54,23 +59,23 @@
 	background: none; color: #fff; border-color: #fff; line-height: 52px; border-width: 3px;
 }
 
-/* CONTENT */	
-.content { 
-	padding-top: 2em; 
+/* CONTENT */
+.content {
+	padding-top: 2em;
 	}
-.hentry { 
-	padding-top: 2.5em; 
+.hentry {
+	padding-top: 2.5em;
 	}
 
-/* SMARTPHONES */	
+/* SMARTPHONES */
 @media screen and (max-width: 767px) {
-	.header { 
+	.header {
 		padding-bottom: .7em;
 		}
-	.content { 
-		padding-top: 1em; 
+	.content {
+		padding-top: 1em;
 		}
-	.hentry { 
-		padding-top: 1em; 
+	.hentry {
+		padding-top: 1em;
 		}
 }

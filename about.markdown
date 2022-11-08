@@ -2,7 +2,6 @@
 layout: page
 title: About
 permalink: /about/
-class: single-page-layout
 ---
 
 <!-- PAGE : ABOUT -->

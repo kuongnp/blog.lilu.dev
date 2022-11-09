@@ -1,0 +1,33 @@
+<section id="portfolio" class="portfolio page">
+    <div class="content">
+        <h2 class="section-title center"><span><i class="icon-leaf"></i>MY WORKS</span></h2>
+        <!--FILTERS-->
+        <ul id="filters" class="filters">
+            <li class="current"><a href="#" data-filter="*">ALL</a></li>
+            <li><a href="#" data-filter=".design">DESIGN</a></li>
+            <li><a href="#" data-filter=".coding">CODING</a></li>
+            <li><a href="#" data-filter=".logo">LOGO</a></li>
+        </ul>
+        <!--FILTERS-->
+        <!-- PORTFOLIO -->
+        <div class="portfolio-items media-grid" data-layout="masonry">
+            {% for post in site.categories.portfolio %}
+            <!-- portfolio-item -->
+            <div class="media-cell design hentry">
+                <div class="media-box">
+                    <img src="{{ post.image }}" alt="portfolio-post">
+                    <div class="mask"></div>
+                    <a href="{{ post.url | absolute_url }}"></a>
+                </div>
+                <div class="media-cell-desc">
+                    <h3>{{ post.title }}</h3>
+                    <p class="category">an illustration work</p>
+                </div>
+            </div>
+            <!-- portfolio-item -->
+            {% endfor %}
+        </div>
+        <!-- PORTFOLIO -->
+    </div>
+    <!-- CONTENT -->
+</section>

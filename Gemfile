@@ -18,6 +18,8 @@ group :jekyll_plugins do
   gem "github-pages", "~> 219"
   gem "jekyll-admin"
   gem "jekyll-feed", "~> 0.12"
+  gem "jekyll-imagemagick", "~> 1.4"
+  gem "jekyll-paginate", "~> 1.1"
 end
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -31,3 +33,7 @@ end
 gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 
 gem "webrick", "~> 1.7"
+
+
+
+

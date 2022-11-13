@@ -1,17 +1,17 @@
 ---
 title: TIPS FOR BETTER CHARACTER SKETCHING
-layout: single
-image: assets/images/uploads/2022/11/09/lee.png
-thumbnail: 
-date: 2022/11/09
-
-
-excerpt: |-
-  One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections. The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked.
+layout: post
+image: assets/images/uploads/2022/11/09/lee.jpg
+date: '2022-11-14 00:00:00'
+excerpt: One morning, when Gregor Samsa woke from troubled dreams, he found himself
+  transformed in his bed into a horrible vermin. He lay on his armour-like back, and
+  if he lifted his head a little he could see his brown belly, slightly domed and
+  divided by arches into stiff sections. The bedding was hardly able to cover it and
+  seemed ready to slide off any moment. His many legs, pitifully thin compared with
+  the size of the rest of him, waved about helplessly as he looked.
 categories:
 - blog
 - typography
-client: Honda Inc
 ---
 
 <div class="entry-content clearfix">

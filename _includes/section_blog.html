@@ -3,11 +3,11 @@
         <h2 class="section-title center"><span><i class="icon-book-open"></i>LATEST FROM THE BLOG</span></h2>
         <!-- LATEST POSTS -->
         <div class="latest-posts media-grid" data-layout="fitRows">
-            {% for post in site.categories.blog %}
+            {% for post in site.categories.blog limit:8 | sort: "date", "last" %}
             <!-- post -->
             <article class="hentry media-cell">
                 <div class="media-box">
-                    <img src={% thumbnail assets/images/uploads/2022/11/09/lee.png 50x50 %} alt="post-image">
+                    <img src={{ post.image | replace: ".jpg", "-720.jpg"  }} alt="post-image">
                     <div class="mask"></div>
                     <a href="{{ post.url | absolute_url }}"></a>
                 </div>

@@ -53,3 +53,27 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+lsi: true
+
+paginate: 5
+paginate_path: "/blog/page:num/"
+
+
+imagemagick:
+  enabled: true
+  widths:
+    - 1024
+    - 720
+    - 600
+    - 0
+  input_directories:
+    - assets/images/uploads/
+  input_formats:
+    - ".png"
+    - ".tiff"
+    - ".jpg"
+  output_formats:
+    jpg: "-quality 93% -define jpeg:dct-method=float -strip -interlace Plane"
+    webp: "-quality 100%"
+

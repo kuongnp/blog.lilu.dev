@@ -34,6 +34,7 @@ jobs:
         with:
           source: ./
           destination: ./_site
+          pre_build_commands: apk --update add imagemagick nodejs
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
 

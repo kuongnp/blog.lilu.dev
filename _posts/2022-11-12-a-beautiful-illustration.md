@@ -1,6 +1,6 @@
 ---
 title: A BEAUTIFUL ILLUSTRATION
-image: assets/images/uploads/2022/11/12/looper.jpg
+image: assets/images/blog/2022/11/15/looper.jpg
 categories:
 - blog
 - photo

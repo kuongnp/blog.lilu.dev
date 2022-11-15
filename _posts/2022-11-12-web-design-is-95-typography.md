@@ -1,6 +1,6 @@
 ---
 title: Web Design is 95% Typography
-image: assets/images/blog/blog-07.png
+image: assets/images/blog/2022/11/15/blog-07.png
 categories:
 - blog
 date: '2022-11-12 19:47:34'

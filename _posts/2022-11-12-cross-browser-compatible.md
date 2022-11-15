@@ -1,6 +1,6 @@
 ---
 title: Cross Browser Compatible
-image: assets/images/blog/blog-02.png
+image: assets/images/blog/2022/11/15/blog-02.png
 categories:
 - blog
 date: '2022-11-12 19:42:11'

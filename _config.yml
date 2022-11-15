@@ -68,12 +68,11 @@ imagemagick:
     - 600
     - 0
   input_directories:
-    - assets/images/uploads/
+    - assets/images/blog/
   input_formats:
     - ".png"
     - ".tiff"
     - ".jpg"
   output_formats:
     jpg: "-quality 93% -define jpeg:dct-method=float -strip -interlace Plane"
-    webp: "-quality 100%"
 

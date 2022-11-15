@@ -1,7 +1,7 @@
 ---
 title: TIPS FOR BETTER CHARACTER SKETCHING
 layout: post
-image: assets/images/uploads/2022/11/09/lee.jpg
+image: assets/images/blog/2022/11/15/lee.jpg
 date: '2022-11-14 00:00:00'
 excerpt: One morning, when Gregor Samsa woke from troubled dreams, he found himself
   transformed in his bed into a horrible vermin. He lay on his armour-like back, and

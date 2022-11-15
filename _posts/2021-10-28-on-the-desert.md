@@ -16,6 +16,7 @@ categories:
 image: assets/images/portfolio/02.jpg
 ---
 
-![]({{ 'assets/images/blog/blog-02.png' | relative_url }})
+![]({{ 'assets/images/site/testo-01.jpg' | relative_url }})
 
-![]({{ 'assets/images/blog/blog-06.png' | relative_url }})
+
+![]({{ 'assets/images/site/testo-02.jpg' | relative_url }})

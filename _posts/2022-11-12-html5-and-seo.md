@@ -1,10 +1,11 @@
 ---
 title: HTML5 and SEO
-image: assets/images/blog/blog-04.png
+image: assets/images/blog/2022/11/15/blog-04.png
 categories:
 - blog
 date: '2022-11-12 19:45:44'
 ---
+
 Test
 Etiam et massa feugiat, gravida lectus consectetur, adipiscing metus. Morbi volutpat fringilla tellus vel rhoncus. Aenean eu felis hendrerit, dapibus odio at, convallis sapien. Nulla facilisi. In fringilla neque ipsum, non consectetur ipsum ultrices vitae. Vivamus suscipit nisi non lacinia iaculis. Pellentesque a blandit ipsum, at auctor neque. Aenean luctus dolor sed tellus convallis, non feugiat libero imperdiet. Integer faucibus mauris sit amet molestie feugiat. Nulla facilisi. Ut facilisis condimentum vestibulum. Integer velit mi, rhoncus nec dignissim vel, blandit in ligula. Quisque massa nibh, euismod sed egestas et, faucibus vitae metus. Phasellus luctus sit amet erat sit amet convallis.
 

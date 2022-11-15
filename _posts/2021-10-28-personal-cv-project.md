@@ -11,5 +11,6 @@ categories:
 client: Honda Inc
 ---
 
-![]({{ 'assets/images/portfolio/02.jpg' | relative_url }})
-![]({{ 'assets/images/blog/blog-08.png' | relative_url }})
+![]({{ 'assets/images/portfolio/04.jpg' | relative_url }})
+
+![]({{ 'assets/images/blog/2022/11/15/lee.png' | relative_url }})

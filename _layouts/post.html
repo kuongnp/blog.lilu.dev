@@ -26,7 +26,7 @@ layout: default
                 </div>
               <!-- end .entry-meta -->
               <div class="featured-image">
-                <img width="720" height="540" src={{ page.image | replace: ".jpg", "-720.jpg" | absolute_url  }} class="attachment-full size-full wp-post-image" alt="{{ page.title }}" loading="lazy" title="" srcset="{{ page.image | replace: ".jpg", "-720.jpg" | absolute_url }} 720w, {{ page.image | replace: ".jpg", "-600.jpg" | absolute_url }} 600w" sizes="(max-width: 720px) 100vw, 720px" />											
+                <img width="720" height="540" src={{ page.image | default: "/assets/images/site/feature.jpg" | replace: ".jpg", "-720.jpg" | absolute_url  }} class="attachment-full size-full wp-post-image" alt="{{ page.title }}" loading="lazy" title="" srcset="{{ page.image | default: "/assets/images/site/feature.jpg" | replace: ".jpg", "-720.jpg" | absolute_url }} 720w, {{ page.image | default: "/assets/images/site/feature.jpg" | replace: ".jpg", "-600.jpg" | absolute_url }} 600w" sizes="(max-width: 720px) 100vw, 720px" />											
               </div>              
               <div class="entry-content clearfix">
                 {{ content }}

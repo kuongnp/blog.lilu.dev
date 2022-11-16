@@ -92,6 +92,7 @@ imagemagick:
     - ".png"
     - ".tiff"
     - ".jpg"
+    - ".webp"
   output_formats:
     jpg: "-quality 93% -define jpeg:dct-method=float -strip -interlace Plane"
 

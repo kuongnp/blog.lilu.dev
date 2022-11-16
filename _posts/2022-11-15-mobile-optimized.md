@@ -2,9 +2,10 @@
 title: Mobile Optimized
 categories:
 - blog
-image: assets/images/blog/2022/11/15/blog-06.jpg
 tags:
+- fantasy
 - mobile
+image: assets/images/blog/2022/11/15/blog-06.jpg
 date: '2022-11-15 20:57:18'
 ---
 

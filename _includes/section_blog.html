@@ -7,7 +7,7 @@
             <!-- post -->
             <article class="hentry media-cell">
                 <div class="media-box">
-                    <img src={{ post.image | default: "/assets/images/site/feature.jpg" | replace: ".jpg", "-720.jpg"  }} alt="post-image">
+                    <img src={{ post.image | default: "/assets/images/site/feature.jpg" | replace: ".jpg", "-720.jpg" | absolute_url }} alt="post-image">
                     <div class="mask"></div>
                     <a href="{{ post.url | absolute_url }}"></a>
                 </div>
@@ -20,6 +20,6 @@
             {% endfor %}
         </div>
         <!-- LATEST POSTS -->
-        <p class="launch"><a class="button primary" href="blog.html">SEE ALL POSTS</a></p>
+        <p class="launch"><a class="button primary" href="/blog/">SEE ALL POSTS</a></p>
     </div>
 </section>

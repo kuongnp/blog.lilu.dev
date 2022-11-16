@@ -1,7 +1,6 @@
 ---
 title: Performance Optimization for Websites
 categories:
-- blog
 - seo
 image: assets/images/blog/2022/11/15/blog-03.png
 date: '2022-11-12 19:44:19'

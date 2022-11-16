@@ -18,12 +18,10 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Your awesome title
-email: your-email@example.com
+title: Jakelong Blog
+email: kuongnp@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  It's my life.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
@@ -57,11 +55,28 @@ plugins:
 lsi: true
 
 pagination:
+  enabled: true
+  per_page: 5
+  permalink: '/page/:num/' # Pages are index.html inside this folder (default)
+  sort_field: 'date'
+  sort_reverse: true
+
+autopages:
+  enabled: true
+  categories:
+    layouts:
+      - blog.html
     enabled: true
-    per_page: 5
-    permalink: '/page/:num/' # Pages are index.html inside this folder (default)
-    sort_field: 'date'
-    sort_reverse: true
+  tags:
+    layouts: 
+      - 'tags.html'
+    title: 'Posts tagged with :tag' # :tag is replaced by the tag name
+    permalink: '/tag/:tag'
+    silent: false
+    slugify:
+      mode: 'default'   # :tag is slugified.
+      case: false
+
 
 imagemagick:
   enabled: true
@@ -72,6 +87,7 @@ imagemagick:
     - 0
   input_directories:
     - assets/images/blog/
+    - assets/images/portfolio/
   input_formats:
     - ".png"
     - ".tiff"

@@ -22,15 +22,9 @@ layout: single
                 </h1>
             </header>
             <!-- .entry-header -->
-            <!-- .featured-image -->
-            <div class="featured-image">
-                <img src="{{ post.image | default: "/assets/images/site/feature.jpg" | replace: ".jpg", "-720.jpg"  | absolute_url }}" alt="blog-image">
-            </div>
-            <!-- .featured-image -->
             <!-- .entry-content -->
             <div class="entry-content">
-                {{ post.excerpt }}
-                <a href="{{ post.url }}" class="more-link">Continue reading <span class="meta-nav">→</span></a>
+                <a href="{{ post.url }}">{{ post.excerpt }}</a>
             </div>
             <!-- .entry-content -->
         </article>
@@ -50,19 +44,6 @@ layout: single
             {% endif %}
         </nav>
         <!-- post nav -->
-        <!-- post pagination -->
-        <nav class="post-pagination">
-            <!--<ul class="pagination">
-          <li class="pagination-first"><a href="#"> First </a></li>
-          <li class="pagination-prev"><a href="#" rel="prev"> « </a></li>
-          <li class="pagination-num"><a href="#"> 1 </a></li>
-          <li class="pagination-num current"><a href="#"> 2 </a></li>
-          <li class="pagination-num"><a href="#"> 3 </a></li>
-          <li class="pagination-next"><a href="#" rel="next"> » </a></li>
-          <li class="pagination-last"><a href="#"> Last </a> </li>
-        </ul>-->
-        </nav>
-        <!-- post pagination -->
     </div>
     <!-- .blog-posts -->
     <!-- InstanceEndEditable -->

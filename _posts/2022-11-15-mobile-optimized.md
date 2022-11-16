@@ -1,7 +1,7 @@
 ---
 title: Mobile Optimized
 categories:
-- blog
+- mobile
 tags:
 - fantasy
 - mobile

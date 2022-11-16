@@ -8,8 +8,13 @@ layout: default
                 <h1 class="entry-title" >{{ page.title }}</h1>
               </header>
               <div class="entry-meta">
-                <span class="posted-in">
-                  posted in <a href="{{ page.categories | join: '/' | relative_url}}" rel="category tag">{{ page.categories | last }}</a></span>
+                  <span class="posted-in">
+                      posted in
+                      {%- for category in page.categories -%}
+                      <a href="/category/{{ category }}/" rel="category tag">{{ category }}</a>
+                      {%- endfor -%}
+
+                  </span>
                 <!-- end .posted-in -->
                 <span class="posted-on">
                   on										
@@ -45,7 +50,7 @@ layout: default
               <footer class="entry-meta post-tags">
                   <h3>TAGS</h3>
                   {% for tag in page.tags %}
-                  <a href="/tags/{{ tag }}/" rel="tag">{{ tag }}</a>
+                  <a href="/tag/{{ tag }}/" rel="tag">{{ tag }}</a>
                   {% endfor %}
               </footer>
             </article>

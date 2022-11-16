@@ -2,7 +2,7 @@
 title: HTML5 and SEO
 image: assets/images/blog/2022/11/15/blog-04.png
 categories:
-- blog
+- seo
 date: '2022-11-12 19:45:44'
 ---
 

@@ -20,3 +20,5 @@ your explicit permission
 and new features aren’t available in every Region
 * Pricing: pricing varies region to region and is
 transparent in the service pricing page
+
+Continue...

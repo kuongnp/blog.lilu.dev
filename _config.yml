@@ -54,6 +54,8 @@ plugins:
 
 lsi: true
 
+include: [CNAME]
+
 pagination:
   enabled: true
   per_page: 5

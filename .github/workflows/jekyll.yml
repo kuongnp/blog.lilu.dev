@@ -26,7 +26,7 @@ jobs:
       - name: Get path imagemagick
         run: sudo which convert
       - name: Export parth imagemagick
-        run: sudo export PATH=/usr/local/bin:$PATH
+        run: export PATH=$PATH:/usr/bin
       - name: Check path imagemagick
         run: sudo echo $PATH
       - name: Build and deploy

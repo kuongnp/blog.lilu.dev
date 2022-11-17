@@ -23,14 +23,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gems-
             
-      - name: Get path imagemagick
-        run: sudo which -a convert
-      - name: Export parth imagemagick
-        run: export PATH=$PATH:/usr/local/bin
-      - name: Check path imagemagick
-        run: sudo echo $PATH
       - name: Build and deploy
         uses: helaili/jekyll-action@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          pre_build_commands: sudo which -a convert
+          pre_build_commands: apk --update add imagemagick

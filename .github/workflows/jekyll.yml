@@ -24,6 +24,8 @@ jobs:
             ${{ runner.os }}-gems-
       - name: Setup imagemagick
         run: sudo apt-get install imagemagick
+      - name: Check imagemagick
+        run: sudo convert -version
       - name: Build and deploy
         uses: helaili/jekyll-action@v2
         with:

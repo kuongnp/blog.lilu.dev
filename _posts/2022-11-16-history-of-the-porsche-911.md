@@ -2,7 +2,7 @@
 title: History of the Porsche 911
 date: '2022-11-16 23:22:26'
 categories:
-- Automobile
+- automobile
 tags:
 - porsche-911
 image: assets/images/blog/2022/11/16/porsche.jpg

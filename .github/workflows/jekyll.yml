@@ -22,10 +22,13 @@ jobs:
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-gems-
-      - name: Setup imagemagick
-        run: sudo apt-get install imagemagick
-      - name: Check imagemagick
-        run: sudo convert -version
+            
+      - name: Get path imagemagick
+        run: sudo which convert
+      - name: Export parth imagemagick
+        run: sudo export PATH=/usr/local/bin:$PATH
+      - name: Check path imagemagick
+        run: sudo echo $PATH
       - name: Build and deploy
         uses: helaili/jekyll-action@v2
         with:

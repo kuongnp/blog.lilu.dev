@@ -24,9 +24,9 @@ jobs:
             ${{ runner.os }}-gems-
             
       - name: Get path imagemagick
-        run: sudo which convert
+        run: sudo which -a convert
       - name: Export parth imagemagick
-        run: export PATH=$PATH:/usr/bin
+        run: export PATH=$PATH:/usr/local/bin
       - name: Check path imagemagick
         run: sudo echo $PATH
       - name: Build and deploy

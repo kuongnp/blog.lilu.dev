@@ -68,7 +68,6 @@ autopages:
   categories:
     layouts:
       - blog.html
-    enabled: true
   tags:
     layouts: 
       - 'tags.html'
@@ -78,6 +77,9 @@ autopages:
     slugify:
       mode: 'default'   # :tag is slugified.
       case: false
+  collections:
+    enabled: false
+
 
 
 imagemagick:

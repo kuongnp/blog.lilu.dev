@@ -1,7 +1,7 @@
 ---
 title: Linux Shell Tutorial
 categories:
-- linux
+- ubuntu
 tags:
 - linux-shell
 date: '2022-11-18 14:49:09'

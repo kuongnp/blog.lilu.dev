@@ -2,7 +2,8 @@
 title: AWS Overview
 categories:
 - aws
-date: '2022-11-20 00:00:00'
+date: '2022-11-16 00:00:00'
+image: assets/images/blog/2022/11/16/aws-regions.jpg
 ---
 
 ### AWS Regions

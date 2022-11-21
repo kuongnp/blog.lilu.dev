@@ -29,3 +29,5 @@ needs
 
 ### IAM Policies inheritance
 ![]({{ 'assets/images/blog/2022/11/21/inheritance.jpg' | relative_url }})
+
+... Continues

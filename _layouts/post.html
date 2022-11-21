@@ -21,7 +21,7 @@ layout: default
                   <a rel="bookmark" title="9:49 am" href="{{ page.url }}"><time class="entry-date" datetime="{{ page.date }}">{{ page.date | date: "%b %d, %Y" }}</time></a>
               </span>
               <!-- end .posted-on -->
-              {%- if page.author %}
+              {%- if page.author -%}
               <span class="posted-by">
                   by
                   <a class="url fn n" rel="author" title="View all posts by JOHNNY DOE" href="/author/{{ page.author }}/">{{ page.author }}</a>
@@ -47,7 +47,7 @@ layout: default
                   </div>
               </div>
           </div>
-          {%- if page.tags %}
+          {%- if page.tags -%}
           <footer class="entry-meta post-tags">
               <h3>TAGS</h3>
               {% for tag in page.tags %}

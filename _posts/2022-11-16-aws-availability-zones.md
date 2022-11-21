@@ -36,3 +36,16 @@ networking, and connectivity
 they’re isolated from disasters
 * They’re connected with high bandwidth,
 ultra-low latency networking
+
+### Tour of the AWS Console
+* AWS has Global Services:
+    * Identity and Access Management (IAM)
+    * Route 53 (DNS service)
+    * CloudFront (Content Delivery Network)
+    * WAF (Web Application Firewall)
+
+* Most AWS services are Region-scoped:
+    * Amazon EC2 (Infrastructure as a Service)
+    * Elastic Beanstalk (Platform as a Service)
+    * Lambda (Function as a Service)
+    * Rekognition (Software as a Service)

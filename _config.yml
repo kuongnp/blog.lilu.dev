@@ -54,6 +54,8 @@ plugins:
 
 lsi: true
 
+future: true 
+
 include: [CNAME]
 
 pagination:

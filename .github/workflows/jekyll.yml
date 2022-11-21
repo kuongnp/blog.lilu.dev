@@ -28,5 +28,4 @@ jobs:
         with:
           target_branch: 'gh-pages'
           token: ${{ secrets.GITHUB_TOKEN }}
-          jekyll_build_options: -w
           pre_build_commands: apk --update add imagemagick

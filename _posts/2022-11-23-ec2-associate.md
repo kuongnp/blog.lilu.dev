@@ -83,3 +83,49 @@ image: assets/images/blog/2022/11/16/aws-regions.jpg
 * A partition failure can affect many EC2 but won’t affect other partitions
 * EC2 instances get access to the partition information as metadata
 * Use cases: HDFS, HBase, Cassandra, Kafka
+
+### Elastic Network Interfaces (ENI)
+* Logical component in a VPC that represents a virtual network card
+* The ENI can have the following attributes:
+    * Primary private IPv4, one or more secondary IPv4
+    * One Elastic IP (IPv4) per private IPv4
+    * One Public IPv4
+    * One or more security groups
+    * A MAC address 
+
+![]({{ 'assets/images/blog/2022/11/21/ENI.jpg' | relative_url }})
+
+* You can create ENI independently and attach them on the fly (move them) on EC2 instances for failover
+* Bound to a specific availability zone (AZ)
+
+### EC2 Hibernate
+* We know we can stop, terminate instances
+   * **Stop –** the data on disk (EBS) is kept intact in the next start
+   * **Terminate –** any EBS volumes (root) also set-up to be destroyed is lost
+
+* On start, the following happens:
+    * First start: the OS boots & the EC2 User Data script is run
+    * Following starts: the OS boots up
+    * Then your application starts, caches get warmed up, and that can take time! 
+
+* Introducing **EC2 Hibernate:**
+    * The in-memory (RAM) state is preserved
+    * The instance boot is much faster! (the OS is not stopped / restarted)
+    * Under the hood: the RAM state is written to a file in the root EBS volume
+    * The root EBS volume must be encrypted
+
+![]({{ 'assets/images/blog/2022/11/21/Ec2Hibernate.jpg' | relative_url }})
+
+* **Use cases:**
+    * Long-running processing
+    * Saving the RAM state
+    * Services that take time to initialize
+
+### EC2 Hibernate – Good to know
+* **Supported Instance Families –** C3, C4, C5, I3, M3, M4, R3, R4, T2, T3, …
+* **Instance RAM Size –** must be less than 150 GB.
+* **Instance Size –** not supported for bare metal instances.
+* **AMI –** Amazon Linux 2, Linux AMI, Ubuntu, RHEL, CentOS & Windows…
+* **Root Volume –** must be EBS, encrypted, not instance store, and large
+* Available for **On-Demand, Reserved** and **Spot** Instances
+* An instance can **NOT** be hibernated more than 60 days

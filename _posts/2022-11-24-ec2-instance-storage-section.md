@@ -99,6 +99,19 @@ image: assets/images/blog/2022/11/16/aws-regions.jpg
     * **st1 (HDD):** Low cost HDD volume designed for frequently accessed, throughput- intensive workloads
     * **sc1 (HDD):** Lowest cost HDD volume designed for less frequently accessed workloads
 
-* EBS Volumes are characterized in Size | Throughput | IOPS (I/O Ops Per Sec)
+* EBS Volumes are characterized in Size / Throughput / IOPS (I/O Ops Per Sec)
 * When in doubt always consult the AWS documentation – it’s good!
 * **Only gp2/gp3 and io1/io2 can be used as boot volumes**
+
+### EBS Volume Types Use cases
+* General Purpose SSD
+    * Cost effective storage, low-latency
+    * System boot volumes, Virtual desktops, Development and test environments
+    * 1 GiB - 16 TiB 
+    * gp3:
+        * Baseline of 3,000 IOPS and throughput of 125 MiB/s
+        * Can increase IOPS up to 16,000 and throughput up to 1000 MiB/s independently
+    * gp2:
+        * Small gp2 volumes can burst IOPS to 3,000
+        * Size of the volume and IOPS are linked, max IOPS is 16,000
+        * 3 IOPS per GB, means at 5,334 GB we are at the max IOPS

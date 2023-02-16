@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js one-page-layout" data-classic-layout="false" data-mobile-only-classic-layout="true" data-inAnimation="fadeInUp" data-outAnimation="fadeOutDownBig"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>EC2 Associate | Jakelong Blog</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="EC2 Associate" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Private vs Public IP (IPv4) Networking has two sorts of IPs. IPv4 and IPv6: IPv4: 1.160.10.240 IPv6: 3ffe:1900:4545:3:200:f8ff:fe21:67cf" />
+<meta property="og:description" content="Private vs Public IP (IPv4) Networking has two sorts of IPs. IPv4 and IPv6: IPv4: 1.160.10.240 IPv6: 3ffe:1900:4545:3:200:f8ff:fe21:67cf" />
+<link rel="canonical" href="/aws/2022/11/23/ec2-associate.html" />
+<meta property="og:url" content="/aws/2022/11/23/ec2-associate.html" />
+<meta property="og:site_name" content="Jakelong Blog" />
+<meta property="og:image" content="/assets/images/blog/2022/11/16/aws-regions.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-11-23T16:23:24+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="/assets/images/blog/2022/11/16/aws-regions.jpg" />
+<meta property="twitter:title" content="EC2 Associate" />
+<script type="application/ld+json">
+{"headline":"EC2 Associate","dateModified":"2022-11-23T16:23:24+00:00","datePublished":"2022-11-23T16:23:24+00:00","description":"Private vs Public IP (IPv4) Networking has two sorts of IPs. IPv4 and IPv6: IPv4: 1.160.10.240 IPv6: 3ffe:1900:4545:3:200:f8ff:fe21:67cf","url":"/aws/2022/11/23/ec2-associate.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"/aws/2022/11/23/ec2-associate.html"},"image":"/assets/images/blog/2022/11/16/aws-regions.jpg","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<!-- FAV and TOUCH ICONS -->
+  <link rel="shortcut icon" href="/assets/images/ico/favicon.ico">
+  <link rel="apple-touch-icon" href="/assets/images/ico/apple-touch-icon.png"/>
+
+  <!-- FONTS -->
+  <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Tangerine:400,700' rel='stylesheet' type='text/css'>
+
+  <!-- STYLES -->
+  <link rel="stylesheet" type="text/css" media="print" href="/assets/css/print.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/assets/js/nprogress/nprogress.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/animate.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/fonts/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/fonts/fontello/css/fontello.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/jquery.fancybox-1.3.4.css">
+  <link rel="stylesheet" type="text/css" href="/assets/js/google-code-prettify/prettify.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/uniform.default.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/flexslider.css">
+  <link rel="stylesheet" type="text/css" href="/assets/js/mediaelement/mediaelementplayer.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/tooltipster.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+  <link rel="stylesheet" class="base-skin" type="text/css" href="/assets/css/skins/flat.css">
+  <!-- <link rel="stylesheet" href="/assets/main.css"> --><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Jakelong Blog" /></head>
+<body>
+<!-- CONTAINER -->
+<div class="container" id="container"><!-- HEADER -->
+<header class="header">
+  <a href="/">
+    <div id="avatar_background">
+      <img src="/assets/images/site/avatar_jack.png" alt="avatar">
+    </div>
+  </a>
+  <h1>JakeLong</h1>
+  <p>freelance graphic designer & coder</p><ul class="vs-nav">
+        <!-- InstanceBeginEditable name="Menu-Content" -->
+        <li>
+            <a href="/">
+                <i title="go to home" class="icon-home-1 tooltip" data-tooltip-pos="left"></i>
+            </a>
+        </li>
+        <li>
+            <a>
+                <i title="search" class="search-link fa fa-search tooltip" data-tooltip-pos="right"></i>
+            </a>
+        </li>
+
+        <!-- InstanceEndEditable -->
+    </ul>
+    <!-- NAV MENU --><!-- SEARCH -->
+  <div class="header-search">
+    <form role="search" method="get" id="search-form" action="#">
+      <input type="text" value="" name="s" id="search" placeholder="Enter Keyword">
+      <input type="submit" id="search-submit" title="Search" value="→">
+    </form>
+  </div>
+  <!-- SEARCH -->
+</header>
+<!-- HEADER -->
+<div class="wrapper">
+  <div class="readable-content blog-single">
+      <article id="post-22" class="post-22 post type-post status-publish format-standard has-post-thumbnail hentry category-typography tag-color tag-font tag-web">
+          <header class="entry-header">
+              <h1 class="entry-title">EC2 Associate</h1>
+          </header>
+          <div class="entry-meta">
+              <span class="posted-in">
+                  posted in<a href="/category/aws/" rel="category tag">aws</a></span>
+              <!-- end .posted-in -->
+              <span class="posted-on">
+                  on
+                  <a rel="bookmark" title="9:49 am" href="/aws/2022/11/23/ec2-associate.html"><time class="entry-date" datetime="2022-11-23 16:23:24 +0000">Nov 23, 2022</time></a>
+              </span>
+              <!-- end .posted-on --></div>
+          <!-- end .entry-meta -->
+          <div class="featured-image">
+              <img width="720" height="540" src=/assets/images/blog/2022/11/16/aws-regions-720.jpg class="attachment-full size-full wp-post-image" alt="EC2 Associate" loading="lazy" title="" srcset="/assets/images/blog/2022/11/16/aws-regions-720.jpg 720w, /assets/images/blog/2022/11/16/aws-regions-600.jpg 600w" sizes="(max-width: 720px) 100vw, 720px" />
+          </div>
+          <div class="entry-content clearfix">
+              <h3 id="private-vs-public-ip-ipv4">Private vs Public IP (IPv4)</h3>
+<ul>
+  <li>Networking has two sorts of IPs. IPv4 and IPv6:
+    <ul>
+      <li>IPv4: 1.160.10.240</li>
+      <li>IPv6: 3ffe:1900:4545:3:200:f8ff:fe21:67cf</li>
+    </ul>
+  </li>
+  <li>IPv4 is still the most common format used online.</li>
+  <li>IPv6 is newer and solves problems for the Internet of Things (IoT).</li>
+  <li>IPv4 allows for 3.7 billion different addresses in the public space</li>
+  <li>IPv4: [0-255].[0-255].[0-255].[0-255].</li>
+</ul>
+
+<h3 id="private-vs-public-ip-ipv4-example">Private vs Public IP (IPv4) Example</h3>
+<p><img src="/assets/images/blog/2022/11/21/IPV4.jpg" alt="" /></p>
+
+<h3 id="private-vs-public-ip-ipv4-fundamental-differences">Private vs Public IP (IPv4) Fundamental Differences</h3>
+<ul>
+  <li>Public IP:
+    <ul>
+      <li>Public IP means the machine can be identified on the internet (WWW)</li>
+      <li>Must be unique across the whole web (not two machines can have the same public IP).</li>
+      <li>Can be geo-located easily</li>
+    </ul>
+  </li>
+  <li>Private IP:
+    <ul>
+      <li>Private IP means the machine can only be identified on a private network only</li>
+      <li>The IP must be unique across the private network</li>
+      <li>BUT two different private networks (two companies) can have the same IPs.</li>
+      <li>Machines connect to WWW using a NAT + internet gateway (a proxy)</li>
+      <li>Only a specified range of IPs can be used as private IP</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="elastic-ips">Elastic IPs</h3>
+<ul>
+  <li>When you stop and then start an EC2 instance, it can change its public IP.</li>
+  <li>If you need to have a fixed public IP for your instance, you need an Elastic IP</li>
+  <li>An Elastic IP is a public IPv4 IP you own as long as you don’t delete it</li>
+  <li>You can attach it to one instance at a time</li>
+  <li>With an Elastic IP address, you can mask the failure of an instance or software by rapidly remapping the address to another instance in your account.</li>
+  <li>You can only have 5 Elastic IP in your account (you can ask AWS to increase that).</li>
+  <li>Overall, try to avoid using Elastic IP:
+    <ul>
+      <li>They often reflect poor architectural decisions</li>
+      <li>Instead, use a random public IP and register a DNS name to it</li>
+      <li>Or, as we’ll see later, use a Load Balancer and don’t use a public IP</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="placement-groups">Placement Groups</h3>
+<ul>
+  <li>When you create a placement group, you specify one of the following strategies for the group:
+    <ul>
+      <li>Cluster—clusters instances into a low-latency group in a single Availability Zone</li>
+      <li>Spread—spreads instances across underlying hardware (max 7 instances per group per AZ)</li>
+      <li>Partition—spreads instances across many different partitions (which rely on different sets of racks) within an AZ. Scales to 100s of EC2 instances per group (Hadoop, Cassandra, Kafka)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="placement-groups-cluster">Placement Groups Cluster</h3>
+<p><img src="/assets/images/blog/2022/11/21/CluserGroup.jpg" alt="" /></p>
+
+<ul>
+  <li>Pros: Great network (10 Gbps bandwidth between instances with Enhanced Networking enabled - recommended)</li>
+  <li>Cons: If the rack fails, all instances fails at the same time</li>
+  <li>Use case:
+    <ul>
+      <li>Big Data job that needs to complete fast</li>
+      <li>Application that needs extremely low latency and high network throughput</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="placement-groups-spread">Placement Groups Spread</h3>
+<p><img src="/assets/images/blog/2022/11/21/SpreadGroup.jpg" alt="" /></p>
+
+<ul>
+  <li>Pros:
+    <ul>
+      <li>Can span across Availability Zones (AZ)</li>
+      <li>Reduced risk is simultaneous failure</li>
+      <li>EC2 Instances are on different physical hardware</li>
+    </ul>
+  </li>
+  <li>Cons:
+    <ul>
+      <li>Limited to 7 instances per AZ per placement group</li>
+    </ul>
+  </li>
+  <li>Use case:
+    <ul>
+      <li>Application that needs to maximize high availability</li>
+      <li>Critical Applications where each instance must be isolated from failure from each other</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="placements-groups-partition">Placements Groups Partition</h3>
+<p><img src="/assets/images/blog/2022/11/21/PartitionGroup.jpg" alt="" /></p>
+<ul>
+  <li>Up to 7 partitions per AZ</li>
+  <li>Can span across multiple AZs in the same region</li>
+  <li>Up to 100s of EC2 instances</li>
+  <li>The instances in a partition do not share racks with the instances in the other partitions</li>
+  <li>A partition failure can affect many EC2 but won’t affect other partitions</li>
+  <li>EC2 instances get access to the partition information as metadata</li>
+  <li>Use cases: HDFS, HBase, Cassandra, Kafka</li>
+</ul>
+
+<h3 id="elastic-network-interfaces-eni">Elastic Network Interfaces (ENI)</h3>
+<ul>
+  <li>Logical component in a VPC that represents a virtual network card</li>
+  <li>The ENI can have the following attributes:
+    <ul>
+      <li>Primary private IPv4, one or more secondary IPv4</li>
+      <li>One Elastic IP (IPv4) per private IPv4</li>
+      <li>One Public IPv4</li>
+      <li>One or more security groups</li>
+      <li>A MAC address</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/blog/2022/11/21/ENI.jpg" alt="" /></p>
+
+<ul>
+  <li>You can create ENI independently and attach them on the fly (move them) on EC2 instances for failover</li>
+  <li>Bound to a specific availability zone (AZ)</li>
+</ul>
+
+<h3 id="ec2-hibernate">EC2 Hibernate</h3>
+<ul>
+  <li>We know we can stop, terminate instances
+    <ul>
+      <li><strong>Stop –</strong> the data on disk (EBS) is kept intact in the next start</li>
+      <li><strong>Terminate –</strong> any EBS volumes (root) also set-up to be destroyed is lost</li>
+    </ul>
+  </li>
+  <li>On start, the following happens:
+    <ul>
+      <li>First start: the OS boots &amp; the EC2 User Data script is run</li>
+      <li>Following starts: the OS boots up</li>
+      <li>Then your application starts, caches get warmed up, and that can take time!</li>
+    </ul>
+  </li>
+  <li>Introducing <strong>EC2 Hibernate:</strong>
+    <ul>
+      <li>The in-memory (RAM) state is preserved</li>
+      <li>The instance boot is much faster! (the OS is not stopped / restarted)</li>
+      <li>Under the hood: the RAM state is written to a file in the root EBS volume</li>
+      <li>The root EBS volume must be encrypted</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/blog/2022/11/21/Ec2Hibernate.jpg" alt="" /></p>
+
+<ul>
+  <li><strong>Use cases:</strong>
+    <ul>
+      <li>Long-running processing</li>
+      <li>Saving the RAM state</li>
+      <li>Services that take time to initialize</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="ec2-hibernate--good-to-know">EC2 Hibernate – Good to know</h3>
+<ul>
+  <li><strong>Supported Instance Families –</strong> C3, C4, C5, I3, M3, M4, R3, R4, T2, T3, …</li>
+  <li><strong>Instance RAM Size –</strong> must be less than 150 GB.</li>
+  <li><strong>Instance Size –</strong> not supported for bare metal instances.</li>
+  <li><strong>AMI –</strong> Amazon Linux 2, Linux AMI, Ubuntu, RHEL, CentOS &amp; Windows…</li>
+  <li><strong>Root Volume –</strong> must be EBS, encrypted, not instance store, and large</li>
+  <li>Available for <strong>On-Demand, Reserved</strong> and <strong>Spot</strong> Instances</li>
+  <li>An instance can <strong>NOT</strong> be hibernated more than 60 days</li>
+</ul>
+
+              <div class='yarpp yarpp-related yarpp-related-website yarpp-template-list'>
+                  <!-- YARPP List -->
+                  <div class="related-posts">
+                      <h3>RELATED POSTS</h3>
+                      <ol><li><a href="/automobile/2023/02/16/hold-the-wheel-like-a-rally-driver-drive-like-a-pro.html" rel="bookmark" title="Hold the Wheel Like a Rally Driver | Drive Like a Pro">Hold the Wheel Like a Rally Driver | Drive Like a Pro</a></li><li><a href="/automobile/2023/02/16/watch-the-road-like-a-rally-driver-drive-like-a-pro.html" rel="bookmark" title="Watch the Road Like a Rally Driver | Drive Like a Pro">Watch the Road Like a Rally Driver | Drive Like a Pro</a></li><li><a href="/automobile/2023/02/16/6-things-you-need-to-know-about-braking-drive-like-a-pro.html" rel="bookmark" title="6 Things You Need to Know About Braking | Drive Like a Pro">6 Things You Need to Know About Braking | Drive Like a Pro</a></li></ol>
+                  </div>
+              </div>
+          </div><footer class="entry-meta post-tags">
+              <h3>TAGS</h3>
+              
+          </footer></article>
+                    
+      <nav class="row nav-single"><div class="col-sm-6 nav-previous">
+            <h4>PREVIOUS POST</h4><a href="/aws/2022/11/22/ec2-basics.html" rel="prev"><span class="meta-nav">←</span> EC2 Basics</a>								
+          </div><div class="col-sm-6 nav-next">
+            <h4>NEXT POST</h4><a href="/aws/2022/11/24/ec2-instance-storage-section.html" rel="next">EC2 Instance Storage Section <span class="meta-nav">→</span></a>
+          </div></nav>
+    </div>
+</div>
+
+</div>
+<!-- CONTAINER --><!-- SCRIPTS -->
+<script src="/assets/js/modernizr.custom.js"></script>
+<script src="/assets/js/jquery-1.10.2.min.js"></script>
+<script src="/assets/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="/assets/js/jquery.address-1.5.min.js"></script>
+<script src="/assets/js/triple.layout.js"></script>
+<script src="/assets/js/smoothscroll.js"></script>
+<script src="/assets/js/nprogress/nprogress.js"></script>
+<script src="/assets/js/fastclick.js"></script>
+<script src="/assets/js/jquery.imagesloaded.min.js"></script>
+<script src="/assets/js/jquery.isotope.min.js"></script>
+<script src="/assets/js/jquery.flexslider-min.js"></script>
+<script src="/assets/js/jquery.fitvids.js"></script>
+<script src="/assets/js/jquery.validate.min.js"></script>
+<script src="/assets/js/jquery.uniform.min.js"></script>
+<script src="/assets/js/jquery.fancybox-1.3.4.pack.js"></script>
+<script src="/assets/js/jquery.tooltipster.min.js"></script>
+<script src="/assets/js/google-code-prettify/prettify.js"></script>
+<script src="/assets/js/twitterFetcher_v10_min.js"></script>
+<script src="/assets/js/mediaelement/mediaelement-and-player.min.js"></script>
+<script src="/assets/js/send-mail.js"></script>
+<script src="/assets/js/classie.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+<script src="/assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js one-page-layout" data-classic-layout="false" data-mobile-only-classic-layout="true" data-inAnimation="fadeInUp" data-outAnimation="fadeOutDownBig"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>EC2 Instance Storage Section | Jakelong Blog</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="EC2 Instance Storage Section" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="What’s an EBS Volume? An EBS (Elastic Block Store) Volume is a network drive you can attach to your instances while they run It allows your instances to persist data, even after their termination They can only be mounted to one instance at a time (at the CCP level) They are bound to a specific availability zone Analogy: Think of them as a “network USB stick” Free tier: 30 GB of free EBS storage of type General Purpose (SSD) or Magnetic per month" />
+<meta property="og:description" content="What’s an EBS Volume? An EBS (Elastic Block Store) Volume is a network drive you can attach to your instances while they run It allows your instances to persist data, even after their termination They can only be mounted to one instance at a time (at the CCP level) They are bound to a specific availability zone Analogy: Think of them as a “network USB stick” Free tier: 30 GB of free EBS storage of type General Purpose (SSD) or Magnetic per month" />
+<link rel="canonical" href="/aws/2022/11/24/ec2-instance-storage-section.html" />
+<meta property="og:url" content="/aws/2022/11/24/ec2-instance-storage-section.html" />
+<meta property="og:site_name" content="Jakelong Blog" />
+<meta property="og:image" content="/assets/images/blog/2022/11/16/aws-regions.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-11-24T16:15:23+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="/assets/images/blog/2022/11/16/aws-regions.jpg" />
+<meta property="twitter:title" content="EC2 Instance Storage Section" />
+<script type="application/ld+json">
+{"headline":"EC2 Instance Storage Section","dateModified":"2022-11-24T16:15:23+00:00","datePublished":"2022-11-24T16:15:23+00:00","description":"What’s an EBS Volume? An EBS (Elastic Block Store) Volume is a network drive you can attach to your instances while they run It allows your instances to persist data, even after their termination They can only be mounted to one instance at a time (at the CCP level) They are bound to a specific availability zone Analogy: Think of them as a “network USB stick” Free tier: 30 GB of free EBS storage of type General Purpose (SSD) or Magnetic per month","url":"/aws/2022/11/24/ec2-instance-storage-section.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"/aws/2022/11/24/ec2-instance-storage-section.html"},"image":"/assets/images/blog/2022/11/16/aws-regions.jpg","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<!-- FAV and TOUCH ICONS -->
+  <link rel="shortcut icon" href="/assets/images/ico/favicon.ico">
+  <link rel="apple-touch-icon" href="/assets/images/ico/apple-touch-icon.png"/>
+
+  <!-- FONTS -->
+  <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Tangerine:400,700' rel='stylesheet' type='text/css'>
+
+  <!-- STYLES -->
+  <link rel="stylesheet" type="text/css" media="print" href="/assets/css/print.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/assets/js/nprogress/nprogress.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/animate.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/fonts/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/fonts/fontello/css/fontello.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/jquery.fancybox-1.3.4.css">
+  <link rel="stylesheet" type="text/css" href="/assets/js/google-code-prettify/prettify.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/uniform.default.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/flexslider.css">
+  <link rel="stylesheet" type="text/css" href="/assets/js/mediaelement/mediaelementplayer.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/tooltipster.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+  <link rel="stylesheet" class="base-skin" type="text/css" href="/assets/css/skins/flat.css">
+  <!-- <link rel="stylesheet" href="/assets/main.css"> --><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Jakelong Blog" /></head>
+<body>
+<!-- CONTAINER -->
+<div class="container" id="container"><!-- HEADER -->
+<header class="header">
+  <a href="/">
+    <div id="avatar_background">
+      <img src="/assets/images/site/avatar_jack.png" alt="avatar">
+    </div>
+  </a>
+  <h1>JakeLong</h1>
+  <p>freelance graphic designer & coder</p><ul class="vs-nav">
+        <!-- InstanceBeginEditable name="Menu-Content" -->
+        <li>
+            <a href="/">
+                <i title="go to home" class="icon-home-1 tooltip" data-tooltip-pos="left"></i>
+            </a>
+        </li>
+        <li>
+            <a>
+                <i title="search" class="search-link fa fa-search tooltip" data-tooltip-pos="right"></i>
+            </a>
+        </li>
+
+        <!-- InstanceEndEditable -->
+    </ul>
+    <!-- NAV MENU --><!-- SEARCH -->
+  <div class="header-search">
+    <form role="search" method="get" id="search-form" action="#">
+      <input type="text" value="" name="s" id="search" placeholder="Enter Keyword">
+      <input type="submit" id="search-submit" title="Search" value="→">
+    </form>
+  </div>
+  <!-- SEARCH -->
+</header>
+<!-- HEADER -->
+<div class="wrapper">
+  <div class="readable-content blog-single">
+      <article id="post-22" class="post-22 post type-post status-publish format-standard has-post-thumbnail hentry category-typography tag-color tag-font tag-web">
+          <header class="entry-header">
+              <h1 class="entry-title">EC2 Instance Storage Section</h1>
+          </header>
+          <div class="entry-meta">
+              <span class="posted-in">
+                  posted in<a href="/category/aws/" rel="category tag">aws</a></span>
+              <!-- end .posted-in -->
+              <span class="posted-on">
+                  on
+                  <a rel="bookmark" title="9:49 am" href="/aws/2022/11/24/ec2-instance-storage-section.html"><time class="entry-date" datetime="2022-11-24 16:15:23 +0000">Nov 24, 2022</time></a>
+              </span>
+              <!-- end .posted-on --></div>
+          <!-- end .entry-meta -->
+          <div class="featured-image">
+              <img width="720" height="540" src=/assets/images/blog/2022/11/16/aws-regions-720.jpg class="attachment-full size-full wp-post-image" alt="EC2 Instance Storage Section" loading="lazy" title="" srcset="/assets/images/blog/2022/11/16/aws-regions-720.jpg 720w, /assets/images/blog/2022/11/16/aws-regions-600.jpg 600w" sizes="(max-width: 720px) 100vw, 720px" />
+          </div>
+          <div class="entry-content clearfix">
+              <h3 id="whats-an-ebs-volume">What’s an EBS Volume?</h3>
+<ul>
+  <li>An EBS (Elastic Block Store) Volume is a network drive you can attach to your instances while they run</li>
+  <li>It allows your instances to persist data, even after their termination</li>
+  <li><strong>They can only be mounted to one instance at a time</strong> (at the CCP level)</li>
+  <li>They are bound to <strong>a specific availability zone</strong></li>
+  <li>Analogy: Think of them as a “network USB stick”</li>
+  <li>Free tier: 30 GB of free EBS storage of type General Purpose (SSD) or Magnetic per month</li>
+</ul>
+
+<h3 id="ebs-volume">EBS Volume</h3>
+<ul>
+  <li>It’s a network drive (i.e. not a physical drive)
+    <ul>
+      <li>It uses the network to communicate the instance, which means there might be a bit of latency</li>
+      <li>It can be detached from an EC2 instance and attached to another one quickly</li>
+    </ul>
+  </li>
+  <li>It’s locked to an Availability Zone (AZ)
+    <ul>
+      <li>An EBS Volume in us-east-1a cannot be attached to us-east-1b</li>
+      <li>To move a volume across, you first need to snapshot it</li>
+    </ul>
+  </li>
+  <li>Have a provisioned capacity (size in GBs, and IOPS)
+    <ul>
+      <li>You get billed for all the provisioned capacity</li>
+      <li>You can increase the capacity of the drive over time</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="ebs-volume---example">EBS Volume - Example</h3>
+<p><img src="/assets/images/blog/2022/11/21/EBSVolume.jpg" alt="" /></p>
+
+<h3 id="ebs--delete-on-termination-attribute">EBS – Delete on Termination attribute</h3>
+<p><img src="/assets/images/blog/2022/11/21/EBSDeleteAttr.jpg" alt="" /></p>
+
+<ul>
+  <li>Controls the EBS behaviour when an EC2 instance terminates
+    <ul>
+      <li>By default, the root EBS volume is deleted (attribute enabled)</li>
+      <li>By default, any other attached EBS volume is not deleted (attribute disabled)</li>
+    </ul>
+  </li>
+  <li>This can be controlled by the AWS console / AWS CLI</li>
+  <li><strong>Use case: preserve root volume when instance is terminated</strong></li>
+</ul>
+
+<h3 id="ebs-snapshots">EBS Snapshots</h3>
+<ul>
+  <li>Make a backup (snapshot) of your EBS volume at a point in time</li>
+  <li>Not necessary to detach volume to do snapshot, but recommended</li>
+  <li>Can copy snapshots across AZ or Region</li>
+</ul>
+
+<p><img src="/assets/images/blog/2022/11/21/SnapshotEBS.jpg" alt="" /></p>
+
+<h3 id="ebs-snapshots-features">EBS Snapshots Features</h3>
+<ul>
+  <li>EBS Snapshot Archive
+    <ul>
+      <li>Move a Snapshot to an ”archive tier” that is 75% cheaper</li>
+      <li>Takes within 24 to 72 hours for restoring the archive</li>
+    </ul>
+  </li>
+  <li>Recycle Bin for EBS Snapshots
+    <ul>
+      <li>Setup rules to retain deleted snapshots so you can recover them after an accidental deletion</li>
+      <li>Specify retention (from 1 day to 1 year)</li>
+    </ul>
+  </li>
+  <li>Fast Snapshot Restore (FSR)
+    <ul>
+      <li>Force full initialization of snapshot to have no latency on the first use ($$$)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/blog/2022/11/21/EBSSnapshotFeature.jpg" alt="" /></p>
+
+<h3 id="ami-overview">AMI Overview</h3>
+<ul>
+  <li>AMI = Amazon Machine Image</li>
+  <li>AMI are a <strong>customization</strong> of an EC2 instance
+    <ul>
+      <li>You add your own software, configuration, operating system, monitoring…</li>
+      <li>Faster boot / configuration time because all your software is pre-packaged</li>
+    </ul>
+  </li>
+  <li>AMI are built for a <strong>specific region</strong> (and can be copied across regions)</li>
+  <li>You can launch EC2 instances from:
+    <ul>
+      <li><strong>A Public AMI:</strong> AWS provided</li>
+      <li><strong>Your own AMI:</strong> you make and maintain them yourself</li>
+      <li><strong>An AWS Marketplace AMI:</strong> an AMI someone else made (and potentially sells)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="ami-process-from-an-ec2-instance">AMI Process (from an EC2 instance)</h3>
+<ul>
+  <li>Start an EC2 instance and customize it</li>
+  <li>Stop the instance (for data integrity)</li>
+  <li>Build an AMI – this will also create EBS snapshots</li>
+  <li>Launch instances from other AMIs</li>
+</ul>
+
+<p><img src="/assets/images/blog/2022/11/21/CustomAMI.jpg" alt="" /></p>
+
+<h3 id="ec2-instance-store">EC2 Instance Store</h3>
+<ul>
+  <li>EBS volumes are network drives with good but “limited” performance</li>
+  <li><strong>If you need a high-performance hardware disk, use EC2 Instance Store</strong></li>
+  <li>Better I/O performance</li>
+  <li>EC2 Instance Store lose their storage if they’re stopped (ephemeral)</li>
+  <li>Good for buffer / cache / scratch data / temporary content</li>
+  <li>Risk of data loss if hardware fails</li>
+  <li>Backups and Replication are your responsibility</li>
+</ul>
+
+<p><img src="/assets/images/blog/2022/11/21/InstanceStore.jpg" alt="" /></p>
+
+<h3 id="ebs-volume-types">EBS Volume Types</h3>
+<ul>
+  <li>EBS Volumes come in 6 types
+    <ul>
+      <li><strong>gp2 / gp3 (SSD):</strong> General purpose SSD volume that balances price and performance for a wide variety of workloads</li>
+      <li><strong>io1 / io2 (SSD):</strong> Highest-performance SSD volume for mission-critical low-latency or high-throughput workloads</li>
+      <li><strong>st1 (HDD):</strong> Low cost HDD volume designed for frequently accessed, throughput- intensive workloads</li>
+      <li><strong>sc1 (HDD):</strong> Lowest cost HDD volume designed for less frequently accessed workloads</li>
+    </ul>
+  </li>
+  <li>EBS Volumes are characterized in Size / Throughput / IOPS (I/O Ops Per Sec)</li>
+  <li>When in doubt always consult the AWS documentation – it’s good!</li>
+  <li><strong>Only gp2/gp3 and io1/io2 can be used as boot volumes</strong></li>
+</ul>
+
+<p>«««&lt; HEAD</p>
+<h3 id="ebs-volume-types-use-cases---general-purpose-ssd">EBS Volume Types Use cases - General Purpose SSD</h3>
+<ul>
+  <li>Cost effective storage, low-latency</li>
+  <li>System boot volumes, Virtual desktops, Development and test environments</li>
+  <li>1 GiB - 16 TiB</li>
+  <li>gp3:
+    <ul>
+      <li>Baseline of 3,000 IOPS and throughput of 125 MiB/s</li>
+      <li>Can increase IOPS up to 16,000 and throughput up to 1000 MiB/s independently</li>
+    </ul>
+  </li>
+  <li>gp2:
+    <ul>
+      <li>Small gp2 volumes can burst IOPS to 3,000</li>
+      <li>Size of the volume and IOPS are linked, max IOPS is 16,000</li>
+      <li>
+        <h1 id="3-iops-per-gb-means-at-5334-gb-we-are-at-the-max-iops">3 IOPS per GB, means at 5,334 GB we are at the max IOPS</h1>
+        <h3 id="ebs-volume-types-use-cases">EBS Volume Types Use cases</h3>
+      </li>
+    </ul>
+  </li>
+  <li>General Purpose SSD
+    <ul>
+      <li>Cost effective storage, low-latency</li>
+      <li>System boot volumes, Virtual desktops, Development and test environments</li>
+      <li>1 GiB - 16 TiB</li>
+      <li>gp3:
+        <ul>
+          <li>Baseline of 3,000 IOPS and throughput of 125 MiB/s</li>
+          <li>Can increase IOPS up to 16,000 and throughput up to 1000 MiB/s independently</li>
+        </ul>
+      </li>
+      <li>gp2:
+        <ul>
+          <li>Small gp2 volumes can burst IOPS to 3,000</li>
+          <li>Size of the volume and IOPS are linked, max IOPS is 16,000</li>
+          <li>3 IOPS per GB, means at 5,334 GB we are at the max IOPS</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+              <div class='yarpp yarpp-related yarpp-related-website yarpp-template-list'>
+                  <!-- YARPP List -->
+                  <div class="related-posts">
+                      <h3>RELATED POSTS</h3>
+                      <ol><li><a href="/automobile/2023/02/16/hold-the-wheel-like-a-rally-driver-drive-like-a-pro.html" rel="bookmark" title="Hold the Wheel Like a Rally Driver | Drive Like a Pro">Hold the Wheel Like a Rally Driver | Drive Like a Pro</a></li><li><a href="/automobile/2023/02/16/watch-the-road-like-a-rally-driver-drive-like-a-pro.html" rel="bookmark" title="Watch the Road Like a Rally Driver | Drive Like a Pro">Watch the Road Like a Rally Driver | Drive Like a Pro</a></li><li><a href="/automobile/2023/02/16/6-things-you-need-to-know-about-braking-drive-like-a-pro.html" rel="bookmark" title="6 Things You Need to Know About Braking | Drive Like a Pro">6 Things You Need to Know About Braking | Drive Like a Pro</a></li></ol>
+                  </div>
+              </div>
+          </div><footer class="entry-meta post-tags">
+              <h3>TAGS</h3>
+              
+          </footer></article>
+                    
+      <nav class="row nav-single"><div class="col-sm-6 nav-previous">
+            <h4>PREVIOUS POST</h4><a href="/aws/2022/11/23/ec2-associate.html" rel="prev"><span class="meta-nav">←</span> EC2 Associate</a>								
+          </div><div class="col-sm-6 nav-next">
+            <h4>NEXT POST</h4><a href="/automobile/2023/02/16/6-things-you-need-to-know-about-braking-drive-like-a-pro.html" rel="next">6 Things You Need to Know About Braking | Drive Like a Pro <span class="meta-nav">→</span></a>
+          </div></nav>
+    </div>
+</div>
+
+</div>
+<!-- CONTAINER --><!-- SCRIPTS -->
+<script src="/assets/js/modernizr.custom.js"></script>
+<script src="/assets/js/jquery-1.10.2.min.js"></script>
+<script src="/assets/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="/assets/js/jquery.address-1.5.min.js"></script>
+<script src="/assets/js/triple.layout.js"></script>
+<script src="/assets/js/smoothscroll.js"></script>
+<script src="/assets/js/nprogress/nprogress.js"></script>
+<script src="/assets/js/fastclick.js"></script>
+<script src="/assets/js/jquery.imagesloaded.min.js"></script>
+<script src="/assets/js/jquery.isotope.min.js"></script>
+<script src="/assets/js/jquery.flexslider-min.js"></script>
+<script src="/assets/js/jquery.fitvids.js"></script>
+<script src="/assets/js/jquery.validate.min.js"></script>
+<script src="/assets/js/jquery.uniform.min.js"></script>
+<script src="/assets/js/jquery.fancybox-1.3.4.pack.js"></script>
+<script src="/assets/js/jquery.tooltipster.min.js"></script>
+<script src="/assets/js/google-code-prettify/prettify.js"></script>
+<script src="/assets/js/twitterFetcher_v10_min.js"></script>
+<script src="/assets/js/mediaelement/mediaelement-and-player.min.js"></script>
+<script src="/assets/js/send-mail.js"></script>
+<script src="/assets/js/classie.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+<script src="/assets/js/main.js"></script>
+</body>
+
+</html>

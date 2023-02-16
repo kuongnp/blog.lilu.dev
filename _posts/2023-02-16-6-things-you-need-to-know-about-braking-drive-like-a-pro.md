@@ -5,6 +5,7 @@ categories:
 tags:
 - drive
 image: assets/images/blog/2023/02/16/DSC_6360-1920x1280.jpg
+date: '2023-02-16 09:59:51'
 ---
 
 To drive fast, you sometimes need to decrease your speed. Even if you don’t want to break records or win races, knowing how to brake effectively is one of the most important things for your safety on the road. Here are the most important things – they could save you one day.

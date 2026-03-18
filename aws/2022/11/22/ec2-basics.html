@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js one-page-layout" data-classic-layout="false" data-mobile-only-classic-layout="true" data-inAnimation="fadeInUp" data-outAnimation="fadeOutDownBig"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>EC2 Basics | Jakelong Blog</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="EC2 Basics" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Amazon EC2 EC2 is one of the most popular of AWS’ offering EC2 = Elastic Compute Cloud = Infrastructure as a Service It mainly consists in the capability of : Renting virtual machines (EC2) Storing data on virtual drives (EBS) Distributing load across machines (ELB) Scaling the services using an auto-scaling group (ASG)" />
+<meta property="og:description" content="Amazon EC2 EC2 is one of the most popular of AWS’ offering EC2 = Elastic Compute Cloud = Infrastructure as a Service It mainly consists in the capability of : Renting virtual machines (EC2) Storing data on virtual drives (EBS) Distributing load across machines (ELB) Scaling the services using an auto-scaling group (ASG)" />
+<link rel="canonical" href="/aws/2022/11/22/ec2-basics.html" />
+<meta property="og:url" content="/aws/2022/11/22/ec2-basics.html" />
+<meta property="og:site_name" content="Jakelong Blog" />
+<meta property="og:image" content="/assets/images/blog/2022/11/16/aws-regions.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-11-22T10:01:31+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="/assets/images/blog/2022/11/16/aws-regions.jpg" />
+<meta property="twitter:title" content="EC2 Basics" />
+<script type="application/ld+json">
+{"headline":"EC2 Basics","dateModified":"2022-11-22T10:01:31+00:00","datePublished":"2022-11-22T10:01:31+00:00","description":"Amazon EC2 EC2 is one of the most popular of AWS’ offering EC2 = Elastic Compute Cloud = Infrastructure as a Service It mainly consists in the capability of : Renting virtual machines (EC2) Storing data on virtual drives (EBS) Distributing load across machines (ELB) Scaling the services using an auto-scaling group (ASG)","url":"/aws/2022/11/22/ec2-basics.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"/aws/2022/11/22/ec2-basics.html"},"image":"/assets/images/blog/2022/11/16/aws-regions.jpg","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<!-- FAV and TOUCH ICONS -->
+  <link rel="shortcut icon" href="/assets/images/ico/favicon.ico">
+  <link rel="apple-touch-icon" href="/assets/images/ico/apple-touch-icon.png"/>
+
+  <!-- FONTS -->
+  <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Tangerine:400,700' rel='stylesheet' type='text/css'>
+
+  <!-- STYLES -->
+  <link rel="stylesheet" type="text/css" media="print" href="/assets/css/print.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/assets/js/nprogress/nprogress.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/animate.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/fonts/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/fonts/fontello/css/fontello.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/jquery.fancybox-1.3.4.css">
+  <link rel="stylesheet" type="text/css" href="/assets/js/google-code-prettify/prettify.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/uniform.default.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/flexslider.css">
+  <link rel="stylesheet" type="text/css" href="/assets/js/mediaelement/mediaelementplayer.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/tooltipster.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+  <link rel="stylesheet" class="base-skin" type="text/css" href="/assets/css/skins/flat.css">
+  <!-- <link rel="stylesheet" href="/assets/main.css"> --><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Jakelong Blog" /></head>
+<body>
+<!-- CONTAINER -->
+<div class="container" id="container"><!-- HEADER -->
+<header class="header">
+  <a href="/">
+    <div id="avatar_background">
+      <img src="/assets/images/site/avatar_jack.png" alt="avatar">
+    </div>
+  </a>
+  <h1>JakeLong</h1>
+  <p>freelance graphic designer & coder</p><ul class="vs-nav">
+        <!-- InstanceBeginEditable name="Menu-Content" -->
+        <li>
+            <a href="/">
+                <i title="go to home" class="icon-home-1 tooltip" data-tooltip-pos="left"></i>
+            </a>
+        </li>
+        <li>
+            <a>
+                <i title="search" class="search-link fa fa-search tooltip" data-tooltip-pos="right"></i>
+            </a>
+        </li>
+
+        <!-- InstanceEndEditable -->
+    </ul>
+    <!-- NAV MENU --><!-- SEARCH -->
+  <div class="header-search">
+    <form role="search" method="get" id="search-form" action="#">
+      <input type="text" value="" name="s" id="search" placeholder="Enter Keyword">
+      <input type="submit" id="search-submit" title="Search" value="→">
+    </form>
+  </div>
+  <!-- SEARCH -->
+</header>
+<!-- HEADER -->
+<div class="wrapper">
+  <div class="readable-content blog-single">
+      <article id="post-22" class="post-22 post type-post status-publish format-standard has-post-thumbnail hentry category-typography tag-color tag-font tag-web">
+          <header class="entry-header">
+              <h1 class="entry-title">EC2 Basics</h1>
+          </header>
+          <div class="entry-meta">
+              <span class="posted-in">
+                  posted in<a href="/category/aws/" rel="category tag">aws</a></span>
+              <!-- end .posted-in -->
+              <span class="posted-on">
+                  on
+                  <a rel="bookmark" title="9:49 am" href="/aws/2022/11/22/ec2-basics.html"><time class="entry-date" datetime="2022-11-22 10:01:31 +0000">Nov 22, 2022</time></a>
+              </span>
+              <!-- end .posted-on --></div>
+          <!-- end .entry-meta -->
+          <div class="featured-image">
+              <img width="720" height="540" src=/assets/images/blog/2022/11/16/aws-regions-720.jpg class="attachment-full size-full wp-post-image" alt="EC2 Basics" loading="lazy" title="" srcset="/assets/images/blog/2022/11/16/aws-regions-720.jpg 720w, /assets/images/blog/2022/11/16/aws-regions-600.jpg 600w" sizes="(max-width: 720px) 100vw, 720px" />
+          </div>
+          <div class="entry-content clearfix">
+              <h3 id="amazon-ec2">Amazon EC2</h3>
+<ul>
+  <li>EC2 is one of the most popular of AWS’ offering</li>
+  <li>EC2 = Elastic Compute Cloud = Infrastructure as a Service</li>
+  <li>It mainly consists in the capability of :
+    <ul>
+      <li>Renting virtual machines (EC2)</li>
+      <li>Storing data on virtual drives (EBS)</li>
+      <li>Distributing load across machines (ELB)</li>
+      <li>Scaling the services using an auto-scaling group (ASG)</li>
+    </ul>
+  </li>
+  <li>Knowing EC2 is fundamental to understand how the Cloud works</li>
+</ul>
+
+<h3 id="ec2-sizing--configuration-options">EC2 sizing &amp; configuration options</h3>
+<ul>
+  <li>Operating System (OS): Linux, Windows or Mac OS</li>
+  <li>How much compute power &amp; cores (CPU)</li>
+  <li>How much random-access memory (RAM)</li>
+  <li>How much storage space:
+    <ul>
+      <li>Network-attached (EBS &amp; EFS)</li>
+      <li>hardware (EC2 Instance Store)</li>
+    </ul>
+  </li>
+  <li>Network card: speed of the card, Public IP address</li>
+  <li>Firewall rules: <strong>security group</strong></li>
+  <li>Bootstrap script (configure at first launch): EC2 User Data</li>
+</ul>
+
+<h3 id="ec2-user-data">EC2 User Data</h3>
+<ul>
+  <li>It is possible to bootstrap our instances using an EC2 User data script.</li>
+  <li>bootstrapping means launching commands when a machine starts</li>
+  <li>That script is only run once at the instance first start</li>
+  <li>EC2 user data is used to automate boot tasks such as:
+    <ul>
+      <li>Installing updates</li>
+      <li>Installing software</li>
+      <li>Downloading common files from the internet</li>
+      <li>Anything you can think of</li>
+    </ul>
+  </li>
+  <li>The EC2 User Data Script runs with the root user</li>
+</ul>
+
+<h3 id="ec2-instance-types---overview">EC2 Instance Types - Overview</h3>
+<p><img src="/assets/images/blog/2022/11/21/Ec2Type.jpg" alt="" /></p>
+
+<h3 id="ec2-instance-types--general-purpose">EC2 Instance Types – General Purpose</h3>
+<ul>
+  <li>Great for a diversity of workloads such as web servers or code repositories</li>
+  <li>Balance between:
+    <ul>
+      <li>Compute</li>
+      <li>Memory</li>
+      <li>Networking</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="ec2-instance-types--compute-optimized">EC2 Instance Types – Compute Optimized</h3>
+<ul>
+  <li>Great for compute-intensive tasks that require high performance processors:
+    <ul>
+      <li>Batch processing workloads</li>
+      <li>Media transcoding</li>
+      <li>High performance web servers</li>
+      <li>High performance computing (HPC)</li>
+      <li>Scientific modeling &amp; machine learning</li>
+      <li>Dedicated gaming servers</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="ec2-instance-types--memory-optimized">EC2 Instance Types – Memory Optimized</h3>
+<ul>
+  <li>Fast performance for workloads that process large data sets in memory</li>
+  <li>Use cases:
+    <ul>
+      <li>High performance, relational/non-relational databases</li>
+      <li>Distributed web scale cache stores</li>
+      <li>In-memory databases optimized for BI (business intelligence)</li>
+      <li>Applications performing real-time processing of big unstructured data</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="ec2-instance-types--storage-optimized">EC2 Instance Types – Storage Optimized</h3>
+<ul>
+  <li>Great for storage-intensive tasks that require high, sequential read and write access to large data sets on local storage</li>
+  <li>Use cases:
+    <ul>
+      <li>High frequency online transaction processing (OLTP) systems</li>
+      <li>Relational &amp; NoSQL databases</li>
+      <li>Cache for in-memory databases (for example, Redis)</li>
+      <li>Data warehousing applications</li>
+      <li>Distributed file systems</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="introduction-to-security-groups">Introduction to Security Groups</h3>
+<ul>
+  <li>Security Groups are the fundamental of network security in AWS</li>
+  <li>They control how traffic is allowed into or out of our EC2 Instances.
+<img src="/assets/images/blog/2022/11/21/SecurityGroup.jpg" alt="" /></li>
+  <li>Security groups only contain allow rules</li>
+  <li>Security groups rules can reference by IP or by security group</li>
+  <li>Security groups are acting as a “firewall” on EC2 instances</li>
+  <li>They regulate:
+    <ul>
+      <li>Access to Ports</li>
+      <li>Authorised IP ranges – IPv4 and IPv6</li>
+      <li>Control of inbound network (from other to the instance)</li>
+      <li>Control of outbound network (from the instance to other)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/blog/2022/11/21/ExamSG.jpg" alt="" /></p>
+
+<h3 id="security-groups-diagram">Security Groups Diagram</h3>
+<p><img src="/assets/images/blog/2022/11/21/DiagramSG.jpg" alt="" /></p>
+
+<h3 id="security-groups-good-to-know">Security Groups Good to know</h3>
+<ul>
+  <li>Can be attached to multiple instances</li>
+  <li>Locked down to a region / VPC combination</li>
+  <li>Does live “outside” the EC2 – if traffic is blocked the EC2 instance won’t see it</li>
+  <li>It’s good to maintain one separate security group for SSH access</li>
+  <li>If your application is not accessible (time out), then it’s a security group issue</li>
+  <li>If your application gives a “connection refused“ error, then it’s an application error or it’s not launched</li>
+  <li>All inbound traffic is blocked by default</li>
+  <li>All outbound traffic is authorised by default</li>
+</ul>
+
+<h3 id="referencing-other-security-groups-diagram">Referencing other security groups Diagram</h3>
+<p><img src="/assets/images/blog/2022/11/21/DiagramSG2.jpg" alt="" /></p>
+
+<h3 id="classic-ports-to-know">Classic Ports to know</h3>
+<ul>
+  <li>22 = SSH (Secure Shell) - log into a Linux instance</li>
+  <li>21 = FTP (File Transfer Protocol) – upload files into a file share</li>
+  <li>22 = SFTP (Secure File Transfer Protocol) – upload files using SSH</li>
+  <li>80 = HTTP – access unsecured websites</li>
+  <li>443 = HTTPS – access secured websites</li>
+  <li>3389 = RDP (Remote Desktop Protocol) – log into a Windows instance</li>
+</ul>
+
+<h3 id="ec2-instances-purchasing-options">EC2 Instances Purchasing Options</h3>
+<ul>
+  <li><strong>On-Demand Instances –</strong> short workload, predictable pricing, pay by second</li>
+  <li><strong>Reserved</strong> (1 &amp; 3 years)
+    <ul>
+      <li><strong>Reserved Instances –</strong> long workloads</li>
+      <li><strong>Convertible Reserved Instances –</strong> long workloads with flexible instances</li>
+    </ul>
+  </li>
+  <li><strong>Savings Plans</strong> (1 &amp; 3 years) – commitment to an amount of usage, long workload</li>
+  <li><strong>Spot Instances –</strong> short workloads, cheap, can lose instances (less reliable)</li>
+  <li><strong>Dedicated Hosts –</strong> book an entire physical server, control instance placement</li>
+  <li><strong>Dedicated Instances –</strong> no other customers will share your hardware</li>
+  <li><strong>Capacity Reservations –</strong> reserve capacity in a specific AZ for any duration</li>
+</ul>
+
+<h3 id="ec2-section--summary">EC2 Section – Summary</h3>
+<ul>
+  <li><strong>EC2 Instance:</strong> AMI (OS) + Instance Size (CPU + RAM) + Storage + security groups + EC2 User Data</li>
+  <li><strong>Security Groups:</strong> Firewall attached to the EC2 instance</li>
+  <li><strong>EC2 User Data:</strong> Script launched at the first start of an instance</li>
+  <li><strong>SSH:</strong> start a terminal into our EC2 Instances (port 22)</li>
+  <li><strong>EC2 Instance Role:</strong> link to IAM roles</li>
+  <li><strong>Purchasing Options:</strong> On-Demand, Spot, Reserved (Standard + Convertible + Scheduled), Dedicated Host, Dedicated Instance</li>
+</ul>
+
+              <div class='yarpp yarpp-related yarpp-related-website yarpp-template-list'>
+                  <!-- YARPP List -->
+                  <div class="related-posts">
+                      <h3>RELATED POSTS</h3>
+                      <ol><li><a href="/automobile/2023/02/16/hold-the-wheel-like-a-rally-driver-drive-like-a-pro.html" rel="bookmark" title="Hold the Wheel Like a Rally Driver | Drive Like a Pro">Hold the Wheel Like a Rally Driver | Drive Like a Pro</a></li><li><a href="/automobile/2023/02/16/watch-the-road-like-a-rally-driver-drive-like-a-pro.html" rel="bookmark" title="Watch the Road Like a Rally Driver | Drive Like a Pro">Watch the Road Like a Rally Driver | Drive Like a Pro</a></li><li><a href="/automobile/2023/02/16/6-things-you-need-to-know-about-braking-drive-like-a-pro.html" rel="bookmark" title="6 Things You Need to Know About Braking | Drive Like a Pro">6 Things You Need to Know About Braking | Drive Like a Pro</a></li></ol>
+                  </div>
+              </div>
+          </div><footer class="entry-meta post-tags">
+              <h3>TAGS</h3>
+              
+          </footer></article>
+                    
+      <nav class="row nav-single"><div class="col-sm-6 nav-previous">
+            <h4>PREVIOUS POST</h4><a href="/aws/2022/11/21/iam-section.html" rel="prev"><span class="meta-nav">←</span> IAM Section</a>								
+          </div><div class="col-sm-6 nav-next">
+            <h4>NEXT POST</h4><a href="/aws/2022/11/23/ec2-associate.html" rel="next">EC2 Associate <span class="meta-nav">→</span></a>
+          </div></nav>
+    </div>
+</div>
+
+</div>
+<!-- CONTAINER --><!-- SCRIPTS -->
+<script src="/assets/js/modernizr.custom.js"></script>
+<script src="/assets/js/jquery-1.10.2.min.js"></script>
+<script src="/assets/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="/assets/js/jquery.address-1.5.min.js"></script>
+<script src="/assets/js/triple.layout.js"></script>
+<script src="/assets/js/smoothscroll.js"></script>
+<script src="/assets/js/nprogress/nprogress.js"></script>
+<script src="/assets/js/fastclick.js"></script>
+<script src="/assets/js/jquery.imagesloaded.min.js"></script>
+<script src="/assets/js/jquery.isotope.min.js"></script>
+<script src="/assets/js/jquery.flexslider-min.js"></script>
+<script src="/assets/js/jquery.fitvids.js"></script>
+<script src="/assets/js/jquery.validate.min.js"></script>
+<script src="/assets/js/jquery.uniform.min.js"></script>
+<script src="/assets/js/jquery.fancybox-1.3.4.pack.js"></script>
+<script src="/assets/js/jquery.tooltipster.min.js"></script>
+<script src="/assets/js/google-code-prettify/prettify.js"></script>
+<script src="/assets/js/twitterFetcher_v10_min.js"></script>
+<script src="/assets/js/mediaelement/mediaelement-and-player.min.js"></script>
+<script src="/assets/js/send-mail.js"></script>
+<script src="/assets/js/classie.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+<script src="/assets/js/main.js"></script>
+</body>
+
+</html>

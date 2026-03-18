@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js one-page-layout" data-classic-layout="false" data-mobile-only-classic-layout="true" data-inAnimation="fadeInUp" data-outAnimation="fadeOutDownBig"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>IAM Section | Jakelong Blog</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="IAM Section" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="IAM: Users &amp; Groups IAM = Identity and Access Management, Global service Root account created by default, shouldn’t be used or shared Users are people within your organization, and can be grouped Groups only contain users, not other groups Users don’t have to belong to a group, and user can belong to multiple groups" />
+<meta property="og:description" content="IAM: Users &amp; Groups IAM = Identity and Access Management, Global service Root account created by default, shouldn’t be used or shared Users are people within your organization, and can be grouped Groups only contain users, not other groups Users don’t have to belong to a group, and user can belong to multiple groups" />
+<link rel="canonical" href="/aws/2022/11/21/iam-section.html" />
+<meta property="og:url" content="/aws/2022/11/21/iam-section.html" />
+<meta property="og:site_name" content="Jakelong Blog" />
+<meta property="og:image" content="/assets/images/blog/2022/11/16/aws-regions.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-11-21T14:29:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="/assets/images/blog/2022/11/16/aws-regions.jpg" />
+<meta property="twitter:title" content="IAM Section" />
+<script type="application/ld+json">
+{"headline":"IAM Section","dateModified":"2022-11-21T14:29:00+00:00","datePublished":"2022-11-21T14:29:00+00:00","description":"IAM: Users &amp; Groups IAM = Identity and Access Management, Global service Root account created by default, shouldn’t be used or shared Users are people within your organization, and can be grouped Groups only contain users, not other groups Users don’t have to belong to a group, and user can belong to multiple groups","url":"/aws/2022/11/21/iam-section.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"/aws/2022/11/21/iam-section.html"},"image":"/assets/images/blog/2022/11/16/aws-regions.jpg","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<!-- FAV and TOUCH ICONS -->
+  <link rel="shortcut icon" href="/assets/images/ico/favicon.ico">
+  <link rel="apple-touch-icon" href="/assets/images/ico/apple-touch-icon.png"/>
+
+  <!-- FONTS -->
+  <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Tangerine:400,700' rel='stylesheet' type='text/css'>
+
+  <!-- STYLES -->
+  <link rel="stylesheet" type="text/css" media="print" href="/assets/css/print.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/assets/js/nprogress/nprogress.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/animate.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/fonts/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/fonts/fontello/css/fontello.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/jquery.fancybox-1.3.4.css">
+  <link rel="stylesheet" type="text/css" href="/assets/js/google-code-prettify/prettify.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/uniform.default.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/flexslider.css">
+  <link rel="stylesheet" type="text/css" href="/assets/js/mediaelement/mediaelementplayer.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/tooltipster.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+  <link rel="stylesheet" class="base-skin" type="text/css" href="/assets/css/skins/flat.css">
+  <!-- <link rel="stylesheet" href="/assets/main.css"> --><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Jakelong Blog" /></head>
+<body>
+<!-- CONTAINER -->
+<div class="container" id="container"><!-- HEADER -->
+<header class="header">
+  <a href="/">
+    <div id="avatar_background">
+      <img src="/assets/images/site/avatar_jack.png" alt="avatar">
+    </div>
+  </a>
+  <h1>JakeLong</h1>
+  <p>freelance graphic designer & coder</p><ul class="vs-nav">
+        <!-- InstanceBeginEditable name="Menu-Content" -->
+        <li>
+            <a href="/">
+                <i title="go to home" class="icon-home-1 tooltip" data-tooltip-pos="left"></i>
+            </a>
+        </li>
+        <li>
+            <a>
+                <i title="search" class="search-link fa fa-search tooltip" data-tooltip-pos="right"></i>
+            </a>
+        </li>
+
+        <!-- InstanceEndEditable -->
+    </ul>
+    <!-- NAV MENU --><!-- SEARCH -->
+  <div class="header-search">
+    <form role="search" method="get" id="search-form" action="#">
+      <input type="text" value="" name="s" id="search" placeholder="Enter Keyword">
+      <input type="submit" id="search-submit" title="Search" value="→">
+    </form>
+  </div>
+  <!-- SEARCH -->
+</header>
+<!-- HEADER -->
+<div class="wrapper">
+  <div class="readable-content blog-single">
+      <article id="post-22" class="post-22 post type-post status-publish format-standard has-post-thumbnail hentry category-typography tag-color tag-font tag-web">
+          <header class="entry-header">
+              <h1 class="entry-title">IAM Section</h1>
+          </header>
+          <div class="entry-meta">
+              <span class="posted-in">
+                  posted in<a href="/category/aws/" rel="category tag">aws</a></span>
+              <!-- end .posted-in -->
+              <span class="posted-on">
+                  on
+                  <a rel="bookmark" title="9:49 am" href="/aws/2022/11/21/iam-section.html"><time class="entry-date" datetime="2022-11-21 14:29:00 +0000">Nov 21, 2022</time></a>
+              </span>
+              <!-- end .posted-on --></div>
+          <!-- end .entry-meta -->
+          <div class="featured-image">
+              <img width="720" height="540" src=/assets/images/blog/2022/11/16/aws-regions-720.jpg class="attachment-full size-full wp-post-image" alt="IAM Section" loading="lazy" title="" srcset="/assets/images/blog/2022/11/16/aws-regions-720.jpg 720w, /assets/images/blog/2022/11/16/aws-regions-600.jpg 600w" sizes="(max-width: 720px) 100vw, 720px" />
+          </div>
+          <div class="entry-content clearfix">
+              <h3 id="iam-users--groups">IAM: Users &amp; Groups</h3>
+<ul>
+  <li>IAM = Identity and Access Management, Global service</li>
+  <li>Root account created by default, shouldn’t be used or shared</li>
+  <li>Users are people within your organization, and can be grouped</li>
+  <li>Groups only contain users, not other groups</li>
+  <li>Users don’t have to belong to a group, and user can belong to multiple groups</li>
+</ul>
+
+<p><img src="/assets/images/blog/2022/11/21/user-group.jpg" alt="" /></p>
+
+<h3 id="iam-permissions">IAM: Permissions</h3>
+<ul>
+  <li>Users or Groups can be
+assigned JSON documents
+called policies</li>
+  <li>These policies define the
+permissions of the users</li>
+  <li>In AWS you apply the least
+privilege principle: don’t give
+more permissions than a user
+needs 
+<img src="/assets/images/blog/2022/11/21/policies.jpg" alt="" /></li>
+</ul>
+
+<h3 id="iam-policies-inheritance">IAM Policies inheritance</h3>
+<p><img src="/assets/images/blog/2022/11/21/inheritance.jpg" alt="" /></p>
+
+<h3 id="iam-policies-structure">IAM Policies Structure</h3>
+<ul>
+  <li>Consists of
+    <ul>
+      <li>Version: policy language version, always include “2012-10-17”</li>
+      <li>Id: an identifier for the policy (optional)</li>
+      <li>Statement: one or more individual statements (required)</li>
+    </ul>
+  </li>
+  <li>Statements consists of
+    <ul>
+      <li>Sid: an identifier for the statement (optional)</li>
+      <li>Effect: whether the statement allows or denies access (Allow, Deny)</li>
+      <li>Principal: account/user/role to which this policy applied to</li>
+      <li>Action: list of actions this policy allows or denies</li>
+      <li>Resource: list of resources to which the actions applied to</li>
+      <li>Condition: conditions for when this policy is in effect (optional)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/blog/2022/11/21/policies_struct.jpg" alt="" /></p>
+
+<h3 id="iam--password-policy">IAM – Password Policy</h3>
+<ul>
+  <li>Strong passwords = higher security for your account</li>
+  <li>In AWS, you can setup a password policy:
+    <ul>
+      <li>Set a minimum password length</li>
+      <li>Require specific character types:
+        <ul>
+          <li>including uppercase letters</li>
+          <li>lowercase letters</li>
+          <li>numbers</li>
+          <li>non-alphanumeric characters</li>
+        </ul>
+      </li>
+      <li>Allow all IAM users to change their own passwords</li>
+      <li>Require users to change their password after some time (password expiration)</li>
+      <li>Prevent password re-use</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="multi-factor-authentication---mfa">Multi Factor Authentication - MFA</h3>
+<ul>
+  <li>Users have access to your account and can possibly change configurations or delete resources in your AWS account</li>
+  <li>You want to protect your Root Accounts and IAM users</li>
+  <li>MFA = password you know + security device you own
+<img src="/assets/images/blog/2022/11/21/MFA.jpg" alt="" /></li>
+  <li>Main benefit of MFA: if a password is stolen or hacked, the account is not compromised</li>
+</ul>
+
+<h3 id="mfa-devices-options-in-aws">MFA devices options in AWS</h3>
+<ul>
+  <li>Virtual MFA device</li>
+  <li>Universal 2nd Factor (U2F) Security Key</li>
+  <li>Hardware Key Fob MFA Device</li>
+  <li>Hardware Key Fob MFA Device for AWS GovCloud (US)</li>
+</ul>
+
+<h3 id="how-can-users-access-aws-">How can users access AWS ?</h3>
+<ul>
+  <li>To access AWS, you have three options:
+    <ul>
+      <li>AWS Management Console (protected by password + MFA)</li>
+      <li>AWS Command Line Interface (CLI): protected by access keys</li>
+      <li>AWS Software Developer Kit (SDK) - for code: protected by access keys</li>
+    </ul>
+  </li>
+  <li>Access Keys are generated through the AWS Console</li>
+  <li>Users manage their own access keys</li>
+  <li><strong>Access Keys are secret, just like a password. Don’t share them</strong></li>
+  <li>Access Key ID ~= username</li>
+  <li>Secret Access Key ~= password</li>
+</ul>
+
+<h3 id="whats-the-aws-cli">What’s the AWS CLI?</h3>
+<ul>
+  <li>A tool that enables you to interact with AWS services using commands in your command-line shell</li>
+  <li>It’s open-source https://github.com/aws/aws-cli</li>
+  <li>Direct access to the public APIs of AWS services</li>
+</ul>
+
+<h3 id="whats-the-aws-sdk">What’s the AWS SDK?</h3>
+<ul>
+  <li>AWS Software Development Kit (AWS SDK)</li>
+  <li>Language-specific APIs (set of libraries)</li>
+  <li>Enables you to access and manage AWS services programmatically</li>
+</ul>
+
+<h3 id="iam-roles-for-services">IAM Roles for Services</h3>
+<ul>
+  <li>Some AWS service will need to perform actions on your behalf</li>
+  <li>To do so, we will assign permissions to AWS services with IAM Roles</li>
+  <li>Common roles:
+    <ul>
+      <li>EC2 Instance Roles</li>
+      <li>Lambda Function Roles</li>
+      <li>Roles for CloudFormation</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="iam-security-tools">IAM Security Tools</h3>
+<ul>
+  <li>IAM Credentials Report (account-level)
+    <ul>
+      <li>a report that lists all your account’s users and the status of their various credentials</li>
+    </ul>
+  </li>
+  <li>IAM Access Advisor (user-level)
+    <ul>
+      <li>Access advisor shows the service permissions granted to a user and when those services were last accessed.</li>
+      <li>You can use this information to revise your policies.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="iam-guidelines--best-practices">IAM Guidelines &amp; Best Practices</h3>
+<ul>
+  <li>Don’t use the root account except for AWS account setup</li>
+  <li>One physical user = One AWS user</li>
+  <li>Assign users to groups and assign permissions to groups</li>
+  <li>Create a strong password policy</li>
+  <li>Use and enforce the use of Multi Factor Authentication (MFA)</li>
+  <li>Create and use Roles for giving permissions to AWS services</li>
+  <li>Use Access Keys for Programmatic Access (CLI / SDK)</li>
+  <li>Audit permissions of your account with the IAM Credentials Report</li>
+  <li>Never share IAM users &amp; Access Keys</li>
+</ul>
+
+<h3 id="iam-section--summary">IAM Section – Summary</h3>
+<ul>
+  <li><strong>Users:</strong> mapped to a physical user, has a password for AWS Console</li>
+  <li><strong>Groups:</strong> contains users only</li>
+  <li><strong>Policies:</strong> JSON document that outlines permissions for users or groups</li>
+  <li><strong>Roles:</strong> for EC2 instances or AWS services</li>
+  <li><strong>Security:</strong> MFA + Password Policy</li>
+  <li><strong>Access Keys:</strong>  access AWS using the CLI or SDK</li>
+  <li><strong>Audit:</strong> IAM Credential Reports &amp; IAM Access Advisor</li>
+</ul>
+
+              <div class='yarpp yarpp-related yarpp-related-website yarpp-template-list'>
+                  <!-- YARPP List -->
+                  <div class="related-posts">
+                      <h3>RELATED POSTS</h3>
+                      <ol><li><a href="/automobile/2023/02/16/hold-the-wheel-like-a-rally-driver-drive-like-a-pro.html" rel="bookmark" title="Hold the Wheel Like a Rally Driver | Drive Like a Pro">Hold the Wheel Like a Rally Driver | Drive Like a Pro</a></li><li><a href="/automobile/2023/02/16/watch-the-road-like-a-rally-driver-drive-like-a-pro.html" rel="bookmark" title="Watch the Road Like a Rally Driver | Drive Like a Pro">Watch the Road Like a Rally Driver | Drive Like a Pro</a></li><li><a href="/automobile/2023/02/16/6-things-you-need-to-know-about-braking-drive-like-a-pro.html" rel="bookmark" title="6 Things You Need to Know About Braking | Drive Like a Pro">6 Things You Need to Know About Braking | Drive Like a Pro</a></li></ol>
+                  </div>
+              </div>
+          </div><footer class="entry-meta post-tags">
+              <h3>TAGS</h3>
+              
+          </footer></article>
+                    
+      <nav class="row nav-single"><div class="col-sm-6 nav-previous">
+            <h4>PREVIOUS POST</h4><a href="/ubuntu/2022/11/18/linux-shell-tutorial.html" rel="prev"><span class="meta-nav">←</span> Linux Shell Tutorial</a>								
+          </div><div class="col-sm-6 nav-next">
+            <h4>NEXT POST</h4><a href="/aws/2022/11/22/ec2-basics.html" rel="next">EC2 Basics <span class="meta-nav">→</span></a>
+          </div></nav>
+    </div>
+</div>
+
+</div>
+<!-- CONTAINER --><!-- SCRIPTS -->
+<script src="/assets/js/modernizr.custom.js"></script>
+<script src="/assets/js/jquery-1.10.2.min.js"></script>
+<script src="/assets/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="/assets/js/jquery.address-1.5.min.js"></script>
+<script src="/assets/js/triple.layout.js"></script>
+<script src="/assets/js/smoothscroll.js"></script>
+<script src="/assets/js/nprogress/nprogress.js"></script>
+<script src="/assets/js/fastclick.js"></script>
+<script src="/assets/js/jquery.imagesloaded.min.js"></script>
+<script src="/assets/js/jquery.isotope.min.js"></script>
+<script src="/assets/js/jquery.flexslider-min.js"></script>
+<script src="/assets/js/jquery.fitvids.js"></script>
+<script src="/assets/js/jquery.validate.min.js"></script>
+<script src="/assets/js/jquery.uniform.min.js"></script>
+<script src="/assets/js/jquery.fancybox-1.3.4.pack.js"></script>
+<script src="/assets/js/jquery.tooltipster.min.js"></script>
+<script src="/assets/js/google-code-prettify/prettify.js"></script>
+<script src="/assets/js/twitterFetcher_v10_min.js"></script>
+<script src="/assets/js/mediaelement/mediaelement-and-player.min.js"></script>
+<script src="/assets/js/send-mail.js"></script>
+<script src="/assets/js/classie.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+<script src="/assets/js/main.js"></script>
+</body>
+
+</html>
